@@ -6,7 +6,7 @@
 </h5>
 &emsp;&emsp;&emsp;&emsp;&emsp; <h1><a href="https://tangerine-gingersnap-3c8b63.netlify.app/">HostedLink</a></h1>
 <hr>
-&emsp;&emsp;&emsp;&emsp;&emsp;<h1>Acceptance criteria</h1>
+<font color="green">## Acceptance Criteria</font>
 <h4>
 <ol>
 <li>The React app must be integrated with Firebase for Create, Read, Update, and Delete (CRUD) functionality of products in the cart.</li>
