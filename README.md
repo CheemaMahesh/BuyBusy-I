@@ -1,12 +1,12 @@
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <h1>BUSY BUY I</h1>
-&emsp;&emsp;<h4>BuyBusy is a web application for the customers of an e-commerce business.</h4>
+<h1>BUSY BUY I</h1>
+<h1><a href="https://tangerine-gingersnap-3c8b63.netlify.app/">HostedLink</a></h1>
+<h3>BuyBusy is a web application for the customers of an e-commerce business.</h3>
 <hr>
-&emsp;&emsp;&emsp;&emsp;&emsp; <h1 >Goal</h1>
-<h5>Develop an E-Commerce that enables individuals to browse available items, add or remove them from their shopping cart, and complete the purchasing process.
-</h5>
-&emsp;&emsp;&emsp;&emsp;&emsp; <h1><a href="https://tangerine-gingersnap-3c8b63.netlify.app/">HostedLink</a></h1>
+<h1 >Goal</h1>
+<h3>Develop an E-Commerce that enables individuals to browse available items, add or remove them from their shopping cart, and complete the purchasing process.
+</h3>
 <hr>
-<font color="green">## Acceptance Criteria</font>
+&emsp;&emsp;&emsp;&emsp;&emsp;<h1>Acceptance criteria</h1>
 <h4>
 <ol>
 <li>The React app must be integrated with Firebase for Create, Read, Update, and Delete (CRUD) functionality of products in the cart.</li>
