@@ -1,0 +1,103 @@
+/* Home.module.css */
+
+.homeContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .heading {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .blogGrid {
+    margin-top: 400px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .blogCard {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .blogCard h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .blogImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .blogInfo {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  .brand {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: cursive;
+    color: blue;
+  }
+  
+  .removeButton {
+    background-color: #ff5757;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .removeButton:hover {
+    background-color: #ff0000;
+  }
+  
+  /* Pagination styles */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pageButton {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .pageButton:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .activePage {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 5px;
+  }
+  

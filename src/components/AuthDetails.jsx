@@ -58,7 +58,7 @@ const AuthDetails = () => {
       )}
 
       {authUser ? (
-       <><h1>home</h1> <Home /></>
+       <Home />
       ) : (
         <div className={styles.authBox}>
           <SignIn />
