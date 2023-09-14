@@ -5,11 +5,14 @@ import SignIn from './auth/SignIn';
 import SignUp from './auth/SignUp';
 import Home from "./Home";
 import styles from "./AuthDetails.module.css";
-import { SuccessToast,ErrorToast } from "./notifications/Notifications";
+import { SuccessToast, ErrorToast } from "./notifications/Notifications";
+import { useValue } from "../OrdersContex";
+import Cart from "./orders/Cart"
 
-// AuthDetails component handles user authentication details
 const AuthDetails = () => {
   const [authUser, setAuthUser] = useState("");
+  const orderContext = useValue();
+  const {cartCount} = orderContext;
 
   useEffect(() => {
     // Listen for changes in authentication state
@@ -29,36 +32,12 @@ const AuthDetails = () => {
     };
   }, []);
 
-  // Function to sign out the user
-  const userSignOut = () => {
-    signOut(auth1)
-      .then(() => {
-        console.log("Signout was Successful");
-        SuccessToast("SignOut");
-
-      })
-      .catch((err) => {
-        console.error("Signout error:", err);
-        ErrorToast("LogOut");
-      });
-  };
+  
 
   return (
     <div className={styles.authDetailsContainer}>
       {authUser ? (
-        // Display user information and a sign-out button if authenticated
-        <div className={styles.authBox}>
-          <div>{`Signed In as ${authUser.email}`}</div>
-          <button className={styles.authButton} onClick={userSignOut}>
-            Sign Out
-          </button>
-        </div>
-      ) : (
-        <></>
-      )}
-
-      {authUser ? (
-       <Home />
+        <Home />
       ) : (
         <div className={styles.authBox}>
           <SignIn />

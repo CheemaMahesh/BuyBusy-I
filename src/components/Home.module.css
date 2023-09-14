@@ -11,13 +11,18 @@
 }
 .itemContainer{
   /* background-color: rgb(28, 28, 218); */
-  height:70vh;
+  height:60vh;
   width: 30%;
   background-color: #fff;
   border: 1px solid #e0e0e0;
   padding: 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  justify-content: space-around;
+  align-items: center;
 }
 .homeContainer::-webkit-scrollbar {
   display: none;
@@ -30,7 +35,88 @@
   height:10%;
 }
 .brand{
-  color: yellowgreen;
+  color: rgb(36, 221, 57);
   font-family: cursive;
+  font-size: 1rem;
+}
+/* .addToCart{
+  height:30px;
+  width: 80%;
+  background-image: linear-gradient(to right,green,blue);
+} */
+/* Home.module.css */
+
+.addToCart {
+  background-color: #007bff; /* Blue background color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 80%;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add a smooth transition effect to background color */
+}
+
+.addToCart:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
+.NaveBar{
+  height:10vh;
+  background-color: #fff;
+  border: 2px solid #dcd7d7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 2rem;
+  position: fixed;
+  margin-bottom: 90vh;
+  
+}
+.search{
+  height:15vh;
+  width:25%;
+
+}
+.nameDiv{
+  height:100%;
+  width: 10%;
   font-size: 1.5rem;
+text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+font-weight: bold;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+color: darkslategray;
+}
+.NaveItems{
+  width:80%;
+  display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+font-size: 1.5rem;
+text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+font-weight: bold;
+color: darkslategray;
+
+}
+.NaveItems input{
+  width:25%;
+  height:50%;
+  border-radius: 2rem;
+  border: 2px solid #dcd7d7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+outline: none;
+font-size: 1.2rem;
+}
+.count{
+  color: rgb(20, 214, 20);
+  font-size: 0.7rem;
+}
+.NaveItems div{
+  cursor: pointer;
 }
