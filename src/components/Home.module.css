@@ -24,6 +24,10 @@
   justify-content: space-around;
   align-items: center;
 }
+.itemContainer:hover {
+    transform: scale(1.1); /* Apply zoom effect on hover */
+    z-index: 1; /* Ensure the zoomed item is on top of others */
+}
 .homeContainer::-webkit-scrollbar {
   display: none;
 }

@@ -38,7 +38,8 @@ const AuthDetails = () => {
     element:<Nav/>,
     children:[
       {index:true,element:<Home/>},
-      {path:"/cart",element:<Cart/>}
+      {path:"/cart",element:<Cart/>},
+      {path:"/orders",element:<Cart/>}
     ]
   }])
 

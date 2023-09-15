@@ -55,7 +55,13 @@
     font-size: 0.7rem;
   }
   .NaveItems div{
-    cursor: pointer;
+    cursor: pointer;    
+  }
+  .navs{
+    text-decoration: none;
+    cursor: pointer;    
+    color: darkslategray;
+
   }
   .details{
     font-weight: blod;
