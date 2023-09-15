@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { auth1 } from "../firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import SignIn from './auth/SignIn';
 import SignUp from './auth/SignUp';
 import Home from "./Home";
 import styles from "./AuthDetails.module.css";
-import { SuccessToast, ErrorToast } from "./notifications/Notifications";
-import { useValue } from "../OrdersContex";
+// import { useValue } from "../OrdersContex";
 import Cart from "./orders/Cart"
+import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import Nav from "./Nav";
+
 
 const AuthDetails = () => {
   const [authUser, setAuthUser] = useState("");
-  const orderContext = useValue();
-  const {cartCount} = orderContext;
+  // const orderContext = useValue();
+  // const {cartCount} = orderContext;
 
   useEffect(() => {
     // Listen for changes in authentication state
@@ -31,13 +33,23 @@ const AuthDetails = () => {
       unsubscribe();
     };
   }, []);
+  const router=createBrowserRouter([{
+    path:"/",
+    element:<Nav/>,
+    children:[
+      {index:true,element:<Home/>},
+      {path:"/cart",element:<Cart/>}
+    ]
+  }])
 
   
 
   return (
+
+    
     <div className={styles.authDetailsContainer}>
       {authUser ? (
-        <Home />
+        <RouterProvider router={router}/>
       ) : (
         <div className={styles.authBox}>
           <SignIn />

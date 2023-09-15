@@ -38,6 +38,7 @@
   color: rgb(36, 221, 57);
   font-family: cursive;
   font-size: 1rem;
+  font-weight: bolder;
 }
 /* .addToCart{
   height:30px;
@@ -119,4 +120,7 @@ font-size: 1.2rem;
 }
 .NaveItems div{
   cursor: pointer;
+}
+.details{
+  font-weight: blod;
 }

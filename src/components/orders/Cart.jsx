@@ -7,8 +7,10 @@ const Cart = () => {
   return (
     <>
      {cartItems ? (
-       cartItems.map((item) => (
-         <h1 key={item}>{item}</h1>
+       cartItems.map((item,i) => (
+        <div key={i}>
+          <h2>{item.ids}</h2>
+        </div>
        ))
      ) : (
        <h1>No item in cart</h1>

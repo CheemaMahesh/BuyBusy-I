@@ -24,6 +24,16 @@ const firebaseConfig2 = {
   appId: "1:1087811735223:web:9c3f1072d7b0f68cd18732"
 };
 
+const firebaseConfig3 = {
+  apiKey: "AIzaSyC7xB4sCjOdNCQsF-Qu3XntJ1wNf97-qb0",
+  authDomain: "orderids-ee26b.firebaseapp.com",
+  projectId: "orderids-ee26b",
+  storageBucket: "orderids-ee26b.appspot.com",
+  messagingSenderId: "25546707482",
+  appId: "1:25546707482:web:83fe6697a8fa5be98177a3"
+};
+
+
 
 
 // Initialize the first Firebase app with a unique name
@@ -32,8 +42,14 @@ const app1 = initializeApp(firebaseConfig1, "app1");
 // Initialize the second Firebase app with a unique name
 const app2 = initializeApp(firebaseConfig2, "app2");
 
+// Initialize 3rd Firebase app with a unique name
+const app3 = initializeApp(firebaseConfig3, "app3");
+
 // Initialize Firebase Authentication and get a reference to the service for app1
 export const auth1 = getAuth(app1);
 
 // Initialize Firestore and get a reference to the service for app2
 export const db2 = getFirestore(app2);
+
+// Initialize Firestore and get a reference to the service for app3
+export const db3 = getFirestore(app3);

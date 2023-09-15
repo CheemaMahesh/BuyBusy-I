@@ -3,20 +3,17 @@ import { db2 } from "../firebase";
 import { collection, onSnapshot } from "firebase/firestore";
 import styles from "./Home.module.css";
 import { useValue } from "../OrdersContex";
-import { auth1 } from "../firebase";
-import { signOut } from "firebase/auth";
-import { SuccessToast,ErrorToast } from "./notifications/Notifications";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart,faHouse } from "@fortawesome/free-solid-svg-icons";
+
+
+
 
 
 
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
-  const {handleCartInc,cartCount}=useValue();
+  const {handleCartInc}=useValue();
 
-  // const [currentPage, setCurrentPage] = useState(1); // Remove pagination state
 
   useEffect(() => {
     // Subscribe to the "blogs" collection in Firestore
@@ -28,7 +25,7 @@ const Home = () => {
         };
       });
       setBlogs(blogs);
-    });
+    },[]);
 
     // Unsubscribe from Firestore when the component unmounts
     return () => {
@@ -37,23 +34,12 @@ const Home = () => {
   }, []);
 
   // ==============================================================Function to sign out the user==================
-  const userSignOut = () => {
-    signOut(auth1)
-      .then(() => {
-        console.log("Signout was Successful");
-        SuccessToast("SignOut");
-      })
-      .catch((err) => {
-        console.error("Signout error:", err);
-        ErrorToast("LogOut");
-      });
-  };
+  
 
 
   return (
     <>
-      <div className={styles.NaveBar}><div className={styles.nameDiv}>Busy Buy</div><div className={styles.NaveItems}><div><FontAwesomeIcon icon={faHouse} />Home</div><input placeholder=" search with name"/><div>My Orders</div><div><span><FontAwesomeIcon icon={faShoppingCart} />
-Cart</span><sup className={styles.count}>{cartCount}</sup></div><div onClick={userSignOut}>Sign Out</div></div></div>
+     
 
     <div className={styles.homeContainer}>
       {blogs.map((item,i)=>{
