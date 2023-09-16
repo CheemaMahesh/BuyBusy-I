@@ -34,6 +34,15 @@ const firebaseConfig3 = {
 };
 
 
+const firebaseConfig4 = {
+  apiKey: "AIzaSyChVRS0HAy_5xpo-n-tlbHr4Xpdy7k-Tjo",
+  authDomain: "orders-6ca62.firebaseapp.com",
+  projectId: "orders-6ca62",
+  storageBucket: "orders-6ca62.appspot.com",
+  messagingSenderId: "165648193461",
+  appId: "1:165648193461:web:75ae03d5e040b3c63f2bfc"
+};
+
 
 
 // Initialize the first Firebase app with a unique name
@@ -45,6 +54,8 @@ const app2 = initializeApp(firebaseConfig2, "app2");
 // Initialize 3rd Firebase app with a unique name
 const app3 = initializeApp(firebaseConfig3, "app3");
 
+const app4=initializeApp(firebaseConfig4, "app4");
+
 // Initialize Firebase Authentication and get a reference to the service for app1
 export const auth1 = getAuth(app1);
 
@@ -53,3 +64,4 @@ export const db2 = getFirestore(app2);
 
 // Initialize Firestore and get a reference to the service for app3
 export const db3 = getFirestore(app3);
+export const db4=getFirestore(app4);

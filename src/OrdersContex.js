@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { db2, db3 } from "./firebase"; // Import db2 here
-import { doc, setDoc, collection, onSnapshot,deleteDoc } from "firebase/firestore";
+import { db2, db3 ,db4} from "./firebase"; // Import db2 here
+import { doc, setDoc, collection, onSnapshot, deleteDoc } from "firebase/firestore";
 import { auth1 } from "./firebase";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { SuccessToast, ErrorToast } from "./components/notifications/Notifications";
@@ -24,23 +24,41 @@ function OrdersContext({ children }) {
   const [email, setEmail] = useState("Mahi@email.com");
   const [userID, setUserId] = useState(null);
   const [subTotal, setSubTotal] = useState(0);
-  const [orderedItems,setOrderedItems]=useState([]);
-
-
+  const [orderedItems, setOrderedItems] = useState([]);
 
   function buyNow(ids, subTotal) {
-    const newOrderedItems = ids.map((data) => {
-      const name = data.title;
-      const url=data.url;
-      // const price = data.price;
-      const docRef = doc(db3, email, data.pId);
-      deleteDoc(docRef);
-      console.log("buy now part 1");
+    const newOrderedItems = ids.map(async (data) => {
+      try {
+        // ====================================================================Construct the document references
+        // const orderDocRef = doc(db4, email);
+        const orderDocRef = doc(collection(db4, email))
+
+        const cartDocRef = doc(db3, `${email}`, data.pId);
   
-      return { name, subTotal ,url};
+        // =========================================================================Set data in the order document
+        await setDoc(orderDocRef, {
+          name: data.title,
+          url: data.url,
+          createdOn: new Date(),
+        });
+  
+        // Delete the corresponding document in the cart
+        await deleteDoc(cartDocRef);
+  
+        // Listen for changes in the ordered items
+        onSnapshot(collection(db4, `${email}`), (snapShot) => {
+          const data = snapShot.docs.map((doc) => {
+            return {
+              id: doc.id,
+              ...doc.data(),
+            };
+          });
+          setOrderedItems(data);
+        });
+      } catch (error) {
+        console.error("Error in buyNow:", error);
+      }
     });
-  
-    setOrderedItems([...orderedItems, ...newOrderedItems]);
   }
   
 
@@ -52,7 +70,7 @@ function OrdersContext({ children }) {
     setSubTotal(subtotal);
   }, [cartItemList]);
 
-  // Getting the userId and email when user signs in
+  // Getting the userId and email when the user signs in
   useEffect(() => {
     onAuthStateChanged(auth1, (user) => {
       if (user) {
@@ -84,11 +102,10 @@ function OrdersContext({ children }) {
       console.log("Entering handleCartInc with id:", id);
 
       const docRef = doc(collection(db3, `${email}`));
-      const maheee = await setDoc(docRef, {
+      await setDoc(docRef, {
         ids: id,
         createdOn: new Date(),
       });
-      console.log("this is mahi", maheee);
 
       console.log("Updated cartItems:", cartItems);
     } catch (error) {
@@ -112,30 +129,26 @@ function OrdersContext({ children }) {
     });
   }, [email]);
 
-  
+  // Remove item from the cart list
+  async function removeBlog(itemId) {
+    try {
+      if (!email) {
+        console.error("Email is null or undefined.");
+        return;
+      }
 
-  //remove item from the cart list
-async function removeBlog(itemId) {
-  try {
-    if (!email) {
-      console.error("Email is null or undefined.");
-      return;
+      if (!itemId) {
+        console.error("itemId is null or undefined.");
+        return;
+      }
+
+      const docRef = doc(db3, email, itemId);
+      await deleteDoc(docRef);
+      console.log("Item removed from cart:", itemId);
+    } catch (error) {
+      console.error("Error removing item from cart:", error);
     }
-
-    if (!itemId) {
-      console.error("itemId is null or undefined.");
-      return;
-    }
-
-    const docRef = doc(db3, email, itemId);
-    await deleteDoc(docRef);
-    console.log("Item removed from cart:", itemId);
-  } catch (error) {
-    console.error("Error removing item from cart:", error);
   }
-}
-
-
 
   // Function to get cart item data from db2
   useEffect(() => {
@@ -155,51 +168,47 @@ async function removeBlog(itemId) {
     };
   }, []);
 
+  // Calculate the cart item list and update it in state
+  useEffect(() => {
+    // Create a new cartItemList array
+    console.log("home");
+    const newCartItemList = [];
+    cartItems.forEach((cartItem, index) => {
+      const matchingBlog = blogs.find((blog) => cartItem.ids === blog.id);
+      if (matchingBlog) {
+        const url = matchingBlog.url;
+        const title = matchingBlog.title;
+        const price = matchingBlog.price;
+        const pId = cartItems[index].id; // Use cartItems[index]?.id or null
 
+        console.log(url, " this is the URL that you have added");
+        // Check if the item is already in cartItemList
+        const existingCartItemIndex = newCartItemList.findIndex(
+          (item) => item.id === matchingBlog.id
+        );
 
-// Calculate the cart item list and update it in state
-useEffect(() => {
-  // Create a new cartItemList array
-  console.log("home");
-  const newCartItemList = [];
-  cartItems.forEach((cartItem, index) => {
-    const matchingBlog = blogs.find((blog) => cartItem.ids === blog.id);
-    if (matchingBlog) {
-      const url = matchingBlog.url;
-      const title = matchingBlog.title;
-      const price = matchingBlog.price;
-      const pId = cartItems[index].id ;// Use cartItems[index]?.id or null
-
-      console.log(url, " this is the URL that you have added");
-      // Check if the item is already in cartItemList
-      const existingCartItemIndex = newCartItemList.findIndex(
-        (item) => item.id === matchingBlog.id
-      );
-
-      if (existingCartItemIndex !== -1) {
-        // Item is already in the cart, increase the quantity
-        newCartItemList[existingCartItemIndex].quantity++;
-        newCartItemList[existingCartItemIndex].total =
-          newCartItemList[existingCartItemIndex].quantity * price;
-      } else {
-        // Item is not in the cart, add it with quantity 1
-        newCartItemList.push({
-          id: matchingBlog.id,
-          url,
-          title,
-          price,
-          quantity: 1,
-          total: price,
-          pId, // Use pId here
-        });
+        if (existingCartItemIndex !== -1) {
+          // Item is already in the cart, increase the quantity
+          newCartItemList[existingCartItemIndex].quantity++;
+          newCartItemList[existingCartItemIndex].total =
+            newCartItemList[existingCartItemIndex].quantity * price;
+        } else {
+          // Item is not in the cart, add it with quantity 1
+          newCartItemList.push({
+            id: matchingBlog.id,
+            url,
+            title,
+            price,
+            quantity: 1,
+            total: price,
+            pId, // Use pId here
+          });
+        }
       }
-    }
-  });
+    });
 
-  setCartItemList(newCartItemList);
-}, [cartItems, blogs]);
-
-
+    setCartItemList(newCartItemList);
+  }, [cartItems, blogs]);
 
   // Calculate the grand total of items in the cart
   useEffect(() => {
