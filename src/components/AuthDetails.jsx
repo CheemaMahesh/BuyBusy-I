@@ -7,6 +7,7 @@ import Home from "./Home";
 import styles from "./AuthDetails.module.css";
 // import { useValue } from "../OrdersContex";
 import Cart from "./orders/Cart"
+import Orders from "./orders/Orders";
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
 import Nav from "./Nav";
 
@@ -39,7 +40,7 @@ const AuthDetails = () => {
     children:[
       {index:true,element:<Home/>},
       {path:"/cart",element:<Cart/>},
-      {path:"/orders",element:<Cart/>}
+      {path:"/orders",element:<Orders/>}
     ]
   }])
 

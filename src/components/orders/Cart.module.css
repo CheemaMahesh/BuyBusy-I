@@ -1,7 +1,11 @@
-/* .cartHome{
+.cartHead{
+  display: flex;
+  justify-content: space-around;
+}
+.cartHome{
     height:100vh;
-    width:100vw;
-    background-color: aqua;
+    width:70vw;
+    background-color: rgb(237, 243, 243);
     overflow: scroll;
     display: flex;
     flex-wrap: wrap;
@@ -9,11 +13,11 @@
 }
 
 .cartImgs{
-    height:200px;
-    width:200px;
+    height:100px;
+    width:100px;
 }
 .cartContainer{
-    margin-top: 5vh;
+    margin-top: 12vh;
     height: 40%;
     width: 30%;
     background-color: #fff;
@@ -24,13 +28,60 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-} */
+}
+.rightBox{
+  width:20vw;
+  background-color: #f2f2f2;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+
+
+
+
+/* ================================================== */
+/* YourComponent.module.css */
+
+
+
+.boxTitle {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.subtotal {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.buyButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buyButton:hover {
+  background-color: #0056b3;
+}
+
+/* ====================================================== */
 
 
 
 /* Cart.module.css */
 
-.cartHome {
+/* .cartHome {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -88,10 +139,7 @@
   .remove:hover{
     background-color: red;
   }
-  .cartHead{
-    display: flex;
-    justify-content: space-around;
-  }
+
   .rightBox{
     height:80vh;
     width: 20vw;
@@ -101,4 +149,4 @@
     margin-left: 90vw;
 
   }
-  
+   */
