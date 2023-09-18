@@ -36,7 +36,7 @@ const Home = () => {
       {/*=============================maping the shoping items-================================================== */}
       {blogs.map((item,i)=>{
         return(<div className={styles.itemContainer} key={i}>
-          <h2 className={styles.h1s}>{item.title}&emsp;{i+1}</h2>
+          <h2 className={styles.h1s}>{item.title}</h2>
           <img src={item.url} className={styles.Imgs} alt={item.title}/>
           <div className={styles.details}><span>{item.color} colored </span><span>{item.category} </span><span>for {item.segment} </span><span><b>&emsp; &#8377;{item.price}</b></span>
           <span className={styles.brand}>&emsp;{item.brand}</span>
