@@ -14,8 +14,7 @@ import Nav from "./Nav";
 
 const AuthDetails = () => {
   const [authUser, setAuthUser] = useState("");
-  // const orderContext = useValue();
-  // const {cartCount} = orderContext;
+
 
   useEffect(() => {
     // Listen for changes in authentication state

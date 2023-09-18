@@ -44,22 +44,29 @@ function OrdersContext({ children }) {
   
         // Delete the corresponding document in the cart
         await deleteDoc(cartDocRef);
+
+        SuccessToast("OMG!!!!!!! YOU HAVE DONE THIS ");
   
         // Listen for changes in the ordered items
-        onSnapshot(collection(db4, `${email}`), (snapShot) => {
-          const data = snapShot.docs.map((doc) => {
-            return {
-              id: doc.id,
-              ...doc.data(),
-            };
-          });
-          setOrderedItems(data);
-        });
+       
       } catch (error) {
         console.error("Error in buyNow:", error);
       }
     });
   }
+
+  //====================================================getting order Details
+  useEffect(()=>{
+    onSnapshot(collection(db4, `${email}`), (snapShot) => {
+      const data = snapShot.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+      setOrderedItems(data);
+    });
+  },[email]);
   
 
   useEffect(() => {
@@ -70,7 +77,8 @@ function OrdersContext({ children }) {
     setSubTotal(subtotal);
   }, [cartItemList]);
 
-  // Getting the userId and email when the user signs in
+
+  // ====================================================Getting the userId and email when the user signs in
   useEffect(() => {
     onAuthStateChanged(auth1, (user) => {
       if (user) {
@@ -83,7 +91,7 @@ function OrdersContext({ children }) {
     });
   }, []);
 
-  // Sign out the user
+  //==============s======================================== Sign out the user
   const userSignOut = () => {
     signOut(auth1)
       .then(() => {
@@ -96,7 +104,7 @@ function OrdersContext({ children }) {
       });
   };
 
-  // Increase cartCount and add items to the cart
+  //============================================== Increase cartCount and add items to the cart
   async function handleCartInc(id) {
     try {
       console.log("Entering handleCartInc with id:", id);
@@ -113,7 +121,7 @@ function OrdersContext({ children }) {
     }
   }
 
-  // Listen for changes in cart items and update state
+  // ==========================================================Listen for changes in cart items and update state
   useEffect(() => {
     onSnapshot(collection(db3, `${email}`), (snapShot) => {
       const data = snapShot.docs.map((doc) => {
@@ -129,10 +137,11 @@ function OrdersContext({ children }) {
     });
   }, [email]);
 
-  // Remove item from the cart list
+  //================================================================= Remove item from the cart list
   async function removeBlog(itemId) {
     try {
       if (!email) {
+        SuccessToast("Removed item from Cart");
         console.error("Email is null or undefined.");
         return;
       }
@@ -150,7 +159,7 @@ function OrdersContext({ children }) {
     }
   }
 
-  // Function to get cart item data from db2
+  // ===========================================Function to get cart item data from db2
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db2, "blogs"), (snapShot) => {
       const blogs = snapShot.docs.map((doc) => {
@@ -168,7 +177,7 @@ function OrdersContext({ children }) {
     };
   }, []);
 
-  // Calculate the cart item list and update it in state
+  // ===============================================Calculate the cart item list and update it in state
   useEffect(() => {
     // Create a new cartItemList array
     console.log("home");
@@ -206,7 +215,6 @@ function OrdersContext({ children }) {
         }
       }
     });
-
     setCartItemList(newCartItemList);
   }, [cartItems, blogs]);
 

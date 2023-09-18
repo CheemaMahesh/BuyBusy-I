@@ -5,11 +5,6 @@ import styles from "./Home.module.css";
 import { useValue } from "../OrdersContex";
 
 
-
-
-
-
-
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const {handleCartInc}=useValue();
@@ -33,15 +28,12 @@ const Home = () => {
     };
   }, []);
 
-  // ==============================================================Function to sign out the user==================
-  
-
-
   return (
     <>
      
 
     <div className={styles.homeContainer}>
+      {/*=============================maping the shoping items-================================================== */}
       {blogs.map((item,i)=>{
         return(<div className={styles.itemContainer} key={i}>
           <h2 className={styles.h1s}>{item.title}&emsp;{i+1}</h2>

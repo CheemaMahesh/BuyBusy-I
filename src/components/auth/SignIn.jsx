@@ -16,9 +16,9 @@ const SignIn = () => {
         titleRef.current.focus()
     },[]);
 
+    //======================Sign in
   const signIn = (e) => {
     e.preventDefault();
-
     signInWithEmailAndPassword(auth1, email, password)
       .then((userCredentials) => {
         console.log(userCredentials);

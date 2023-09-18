@@ -9,6 +9,8 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+  // ==========================SignUp=================
   const signUp = (e) => {
     e.preventDefault();
   
