@@ -68,36 +68,39 @@ The firebase API would look like this:
 
 </h4>
 <hr/>
-##BusyBuyI
-    |
-    |====>node_modules
-    |
-    |
-    |====>public                                                                                                                                 |=>SignIn.jsx & SignIn.module.css
-    |                    |===>components======================>|----------------------------------------------->auth---------------------------->|=>SingUp.jsx & SignUp.module.css
-    |                    |                                     |------>notifications-->Notifications.js  
-    |====>src===========>|                                     |                                                   |=>Cart.jsx &Cart.module.css
-    |                    |                                     |------------------->orders------------------------>|
-    |                    |                                     |                                                   |=>Orders.jsx & Order.module.css
-    |                    |                                     |======>AuthDetails.jsx & AuthDetails.module.css
-    |                    |                                     |======>Home.jsx & Home.module.css
-    |                    |                                     |======>Nav.jsx & Nav.module.css
-    |                    |=======>App.css
-    |                    |=======>App.js                  
-    |                    |
-    |                    |=======>Firebase                   
-    |                    |
-    |                    |=======>Index.css
-    |                    |=======>Index.js
-    |                    |
-    |                    |=====>OrderContext.js
-    |
-    |
-    |==>.gitignore
-    |==>package-lock.json
-    |==>package.json
-    |==>README.md
+<h1>Folder Structure</h1>
+*************************************************************************************BusyBuyI*****************************************
+****node_modules
+****public
+****src/
+    ***components/
+        **auth/
+            *SignIn.jsx
+            *SignIn.module.css
+            *SignUp.jsx
+            *SignUp.module.css            
+        **notifications/
+            *Notifications.js
+        **AuthDetails.jsx
+        **AuthDetails.module.css
+        **Home.jsx
+        **Home.module.css
+        **Nav.jsx
 
+    ***App.css
+    ***App.js
+    ***Firebase.js
+    ***Index.css
+    ***Index.js
+    ***OrdersContext.js
+****.gitignore
+****package-lock.json
+****package.json
+****README.md
+
+
+
+   
 
 
 
