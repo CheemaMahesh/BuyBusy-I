@@ -67,8 +67,36 @@ The firebase API would look like this:
   - /userOrders/<user_uid>/orders to hold users orders.
 
 </h4>
-
-
+<hr/>
+##BusyBuyI
+    |
+    |====>node_modules
+    |
+    |
+    |====>public                                                                                                                                 |=>SignIn.jsx & SignIn.module.css
+    |                    |===>components======================>|----------------------------------------------->auth---------------------------->|=>SingUp.jsx & SignUp.module.css
+    |                    |                                     |------>notifications-->Notifications.js  
+    |====>src===========>|                                     |                                                   |=>Cart.jsx &Cart.module.css
+    |                    |                                     |------------------->orders------------------------>|
+    |                    |                                     |                                                   |=>Orders.jsx & Order.module.css
+    |                    |                                     |======>AuthDetails.jsx & AuthDetails.module.css
+    |                    |                                     |======>Home.jsx & Home.module.css
+    |                    |                                     |======>Nav.jsx & Nav.module.css
+    |                    |=======>App.css
+    |                    |=======>App.js                  
+    |                    |
+    |                    |=======>Firebase                   
+    |                    |
+    |                    |=======>Index.css
+    |                    |=======>Index.js
+    |                    |
+    |                    |=====>OrderContext.js
+    |
+    |
+    |==>.gitignore
+    |==>package-lock.json
+    |==>package.json
+    |==>README.md
 
 
 
