@@ -1,6 +1,5 @@
 import './App.css';
 import OrdersContex from './OrdersContex';
-
 import AuthDetails from './components/AuthDetails';
 
 

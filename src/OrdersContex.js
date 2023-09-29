@@ -20,6 +20,7 @@ function OrdersContext({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [cartItemList, setCartItemList] = useState([]);
   const [blogs, setBlogs] = useState([]);
+  const [items,setItems]=useState([]);
   const [gTotal, setGTotal] = useState(0);
   const [email, setEmail] = useState("Mahi@email.com");
   const [userID, setUserId] = useState(null);
@@ -224,6 +225,30 @@ function OrdersContext({ children }) {
   }, [cartItemList]);
 
   // Provide the context's value to its children components
+
+
+
+
+  // ========================================================Blogs=reander============================
+  useEffect(() => {
+    // Subscribe to the "blogs" collection in Firestore
+    const unsubscribe = onSnapshot(collection(db2, "blogs"), (snapShot) => {
+      const blogs = snapShot.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+      setItems(blogs);
+    },[]);
+
+    // Unsubscribe from Firestore when the component unmounts
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  // ===================================================================================================
   return (
     <OrderContext.Provider
       value={{
@@ -240,6 +265,7 @@ function OrdersContext({ children }) {
         removeBlog,
         buyNow,
         orderedItems,
+        items,
       }}
     >
       {children}

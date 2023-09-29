@@ -44,12 +44,7 @@
   font-size: 1rem;
   font-weight: bolder;
 }
-/* .addToCart{
-  height:30px;
-  width: 80%;
-  background-image: linear-gradient(to right,green,blue);
-} */
-/* Home.module.css */
+
 
 .addToCart {
   background-color: #007bff; /* Blue background color */
@@ -128,3 +123,28 @@ font-size: 1.2rem;
 .details{
   font-weight: blod;
 }
+
+.pagebtns {
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 5px 10px; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  margin: 5px;
+}
+
+.pagebtns:hover {
+  background-color: #0056b3; 
+}
+
+.pagebtns:disabled {
+  background-color: #ccc; 
+  cursor: not-allowed;
+}
+
+.pageNumber {
+  font-weight: bold; 
+  margin: 0 10px;
+}
+

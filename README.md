@@ -68,6 +68,11 @@ The firebase API would look like this:
 
 </h4>
 
+<hr/>
+<h1>Folder Structure</h1>
+
+
+
 
 
 
