@@ -26,6 +26,7 @@ function OrdersContext({ children }) {
   const [userID, setUserId] = useState(null);
   const [subTotal, setSubTotal] = useState(0);
   const [orderedItems, setOrderedItems] = useState([]);
+  const [searchedItems,setSearchedItems]=useState([]);
 
   function buyNow(ids, subTotal) {
     const newOrderedItems = ids.map(async (data) => {
@@ -137,7 +138,15 @@ function OrdersContext({ children }) {
       console.log(data.length);
     });
   }, [email]);
-
+// ======================================================================Cancle the Order
+  async function cancleOrder(id,email){
+    try{
+      const docRef = doc(db4, email, id);
+      await deleteDoc(docRef);
+    }catch(err){
+      console.error(err);
+    }
+  }
   //================================================================= Remove item from the cart list
   async function removeBlog(itemId) {
     try {
@@ -249,6 +258,20 @@ function OrdersContext({ children }) {
   }, []);
 
   // ===================================================================================================
+  useEffect(() => {
+    if (searchedItems.length !== 0) {
+      setItems(searchedItems);
+    }
+  }, [searchedItems]);
+
+  function handleSearch(data) {
+    const filteredItems = blogs.filter((item) =>
+      item.title.toLowerCase().includes(data.toLowerCase())
+    );
+    setSearchedItems(filteredItems);
+  }
+ 
+  // ====================================================================================================
   return (
     <OrderContext.Provider
       value={{
@@ -266,6 +289,8 @@ function OrdersContext({ children }) {
         buyNow,
         orderedItems,
         items,
+        handleSearch,
+        cancleOrder,
       }}
     >
       {children}

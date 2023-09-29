@@ -67,3 +67,52 @@
     font-weight: blod;
   }
   
+
+  .formcontainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Style for the input field */
+  .forminput {
+    width: 200px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    border: 2px solid #dcd7d7;
+    border-radius: 20px; /* Increase border-radius for rounded corners */
+    padding: 5px 10px; /* Add padding for better appearance */
+    outline: none;
+    font-size: 1.2rem;
+    margin-right: 10px; /* Add margin to separate the input and button */
+  }
+  
+  /* Style for the search button */
+  .formbutton {
+    background-color: #014421;
+    color: #fff;
+    border: none;
+    border-radius: 20px; /* Increase border-radius for rounded corners */
+    padding: 5px 15px; /* Add padding for better appearance */
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  /* Adjust the existing styles for the input field in .NaveItems input */
+  .NaveItems input {
+    width: auto; /* Remove the fixed width */
+  }
+  /* Style for the search button */
+.formbutton {
+  background-color: #014421;
+  color: #fff;
+  border: none;
+  border-radius: 20px; /* Increase border-radius for rounded corners */
+  padding: 10px 20px; /* Add padding for better appearance */
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Style for the search button on hover */
+.form-button:hover {
+  background-color: #009935; /* Change the background color on hover */
+}

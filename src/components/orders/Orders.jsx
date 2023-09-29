@@ -3,14 +3,13 @@ import { useValue } from "../../OrdersContex"; // Update the import as needed
 import styles from "./Orders.module.css";
 
 export default function Orders() {
-  const { orderedItems } = useValue();
-  console.log(orderedItems," ordersssssssssssssssssssssss");
+  const { orderedItems, email, cancleOrder } = useValue();
 
   return (
     <div className={styles.orders}>
       <h2 className={styles.title}>Your Orders</h2>
       <ul className={styles.orderList}>
-        {/* =======================================================Maping the ordered item=============================================== */}
+        {/* Maping the ordered items */}
         {orderedItems.map((data) => (
           <li key={data.id} className={styles.orderItem}>
             <div className={styles.orderInfo}>
@@ -20,6 +19,12 @@ export default function Orders() {
                 src={data.url}
                 alt={data.name}
               />
+              <button
+                className={styles.removeButton}
+                onClick={() => cancleOrder(data.id, email)}
+              >
+                Cancle
+              </button>
             </div>
           </li>
         ))}

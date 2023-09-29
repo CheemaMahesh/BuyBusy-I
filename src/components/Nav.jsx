@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState}from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart,faHouse } from "@fortawesome/free-solid-svg-icons";
 import { useValue } from "../OrdersContex";
@@ -7,7 +7,14 @@ import styles from "./Nav.module.css"
 
 
 function Nav(){
-    const {cartCount,userSignOut}=useValue();
+    const {cartCount,userSignOut,handleSearch}=useValue();
+    const [search,setSearch]=useState("");
+
+    function Searched(e){
+      e.preventDefault();
+      handleSearch(search);
+      setSearch("");
+    }
 
     return(
        <> <div className={styles.NaveBar}><div className={styles.nameDiv}>Busy Buy</div><div className={styles.NaveItems}><NavLink to="/" className={styles.navs} style={({ isActive }) =>
@@ -16,7 +23,20 @@ function Nav(){
              color: "#014421",
            }
          : {}
-     }><FontAwesomeIcon icon={faHouse} />Home</NavLink><input placeholder=" search with name"/><NavLink to="/orders" className={styles.navs} style={({ isActive }) =>
+     }><FontAwesomeIcon icon={faHouse} />Home</NavLink>
+     <form className={styles.formcontainer} onSubmit={ Searched}>
+     <input
+       className={styles.forminput}
+       type="text"
+       placeholder="Search by name"
+       value={search}
+       onChange={(e) => setSearch(e.target.value)}
+     />
+     <button className={styles.formbutton} >
+       Search
+     </button>
+   </form>
+   <NavLink to="/orders" className={styles.navs} style={({ isActive }) =>
      isActive
        ? {
            color: "green",
