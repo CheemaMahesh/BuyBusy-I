@@ -148,3 +148,42 @@ font-size: 1.2rem;
   margin: 0 10px;
 }
 
+/* Default styles for larger screens */
+.homeContainer {
+  padding: 20px;
+  height: 500vh;
+  width: 96vw;
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.itemContainer {
+  height: 60vh;
+  width: 30%;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Responsive styles for smaller screens (e.g., mobile) */
+@media (max-width: 600px) {
+  .homeContainer {
+    flex-direction: column; /* Change to a vertical layout */
+    align-items: center; /* Center items vertically */
+    height: auto; /* Allow the height to adjust based on content */
+  }
+
+  .itemContainer {
+    width: 80%; /* Adjust width for mobile */
+  }
+}
+

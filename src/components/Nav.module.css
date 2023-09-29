@@ -115,4 +115,86 @@
 /* Style for the search button on hover */
 .form-button:hover {
   background-color: #009935; /* Change the background color on hover */
+
+
 }
+
+
+
+
+/* ===========================================================Reasponsive************************************************** */
+
+
+
+/* Default styles for larger screens */
+.NaveBar {
+  height: 10vh;
+  background-color: #fff;
+  border: 2px solid #dcd7d7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 2rem;
+  position: fixed;
+  margin-bottom: 90vh;
+}
+
+.NaveItems {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  color: darkslategray;
+}
+
+/* Responsive styles for smaller screens (e.g., mobile) */
+@media (max-width: 600px) {
+  .NaveBar {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .NaveItems {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nameDiv {
+    font-size: 1.2rem;
+  }
+
+  .formcontainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the input and button horizontally */
+  }
+
+  /* Adjust the input width and padding for better visibility */
+  .forminput {
+    width: 70%; /* Increase the width to make it more visible */
+    padding: 10px 15px; /* Adjust padding for better touch interaction */
+  }
+
+  .count {
+    font-size: 0.9rem;
+  }
+
+  /* You can also hide or show elements as needed for mobile */
+  /* Example: Hide the .search input for mobile */
+  .NaveItems input {
+    display: block; /* Display the input for mobile */
+    width: 100%; /* Make the input full-width */
+  }
+}
+
+
