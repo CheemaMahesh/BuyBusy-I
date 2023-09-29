@@ -29,7 +29,7 @@ function OrdersContext({ children }) {
   const [searchedItems,setSearchedItems]=useState([]);
 
   function buyNow(ids, subTotal) {
-    const newOrderedItems = ids.map(async (data) => {
+     ids.map(async (data) => {
       try {
         // ====================================================================Construct the document references
         // const orderDocRef = doc(db4, email);
