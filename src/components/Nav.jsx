@@ -15,9 +15,7 @@ function Nav(){
       handleSearch(search);
       setSearch("");
     }
-    function handleRefresh() {
-      window.location.reload();
-    }
+    
 
     return(
        <> <div className={styles.NaveBar}><div className={styles.nameDiv}>Busy Buy</div><div className={styles.NaveItems}><NavLink to="/" className={styles.navs} style={({ isActive }) =>
@@ -26,7 +24,7 @@ function Nav(){
              color: "#014421",
            }
          : {}
-     } onClick={handleRefresh}><FontAwesomeIcon icon={faHouse} />Home</NavLink>
+     }><FontAwesomeIcon icon={faHouse} />Home</NavLink>
      <form className={styles.formcontainer} onSubmit={ Searched}>
      <input
        className={styles.forminput}
