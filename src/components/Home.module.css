@@ -39,15 +39,15 @@
   height:10%;
 }
 .brand{
-  color: rgb(36, 221, 57);
-  font-family: cursive;
+  color: #007bff; 
+  font-family: monospace;
   font-size: 1rem;
   font-weight: bolder;
 }
 
 
 .addToCart {
-  background-color: #007bff; /* Blue background color */
+  background-color: #ff9900; /* Blue background color */
   color: #fff; /* White text color */
   border: none;
   border-radius: 4px;
@@ -59,7 +59,7 @@
 }
 
 .addToCart:hover {
-  background-color: #0056b3; /* Darker blue color on hover */
+  background-color: #ff9900; /* Darker blue color on hover */
 }
 .NaveBar{
   height:10vh;
@@ -125,7 +125,8 @@ font-size: 1.2rem;
 }
 
 .pagebtns {
-  background-color: #007bff; 
+  background-color: #ff9900;
+  
   color: #fff; 
   padding: 5px 10px; 
   border: none; 
@@ -135,7 +136,7 @@ font-size: 1.2rem;
 }
 
 .pagebtns:hover {
-  background-color: #0056b3; 
+  background-color: #ff9d00; 
 }
 
 .pagebtns:disabled {
@@ -148,7 +149,6 @@ font-size: 1.2rem;
   margin: 0 10px;
 }
 
-/* Default styles for larger screens */
 .homeContainer {
   padding: 20px;
   height: 500vh;
