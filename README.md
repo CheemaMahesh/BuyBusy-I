@@ -1,5 +1,5 @@
 <h1>BUSY BUY I</h1>
-<h1><a href="https://tangerine-gingersnap-3c8b63.netlify.app/">HostedLink</a></h1>
+<h1><a href="https://buy-busy-i.vercel.app/">HostedLink</a></h1>
 <h3>BuyBusy is a web application for the customers of an e-commerce business.</h3>
 <hr>
 <h1 >Goal</h1>
